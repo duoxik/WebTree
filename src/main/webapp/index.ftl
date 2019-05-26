@@ -7,7 +7,6 @@
     <#include "WEB-INF/css/tree.ftl">
     <#include "WEB-INF/js/jquery.ftl">
     <#include "WEB-INF/js/getrequest.ftl">
-    <#include "WEB-INF/js/tree.ftl">
 </head>
 <body>
     <H1>Nodes tree:</H1>
