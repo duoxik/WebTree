@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Nodes tree</title>
     <#include "WEB-INF/css/style.ftl">
-    <#include "tree.ftl">
+    <#include "WEB-INF/css/tree.ftl">
     <#include "WEB-INF/js/jquery.ftl">
     <#include "WEB-INF/js/getrequest.ftl">
     <#include "WEB-INF/js/tree.ftl">
