@@ -19,7 +19,7 @@ public class TreeController {
         return "index";
     }
 
-    @GetMapping("/showChildren/{id}")
+    @GetMapping("/showChildren/id{id}")
     public String getChildrenById(@PathVariable int id, Model model) {
         model.addAttribute("nodes", treeService.getChildrenById(id));
         return "part";
