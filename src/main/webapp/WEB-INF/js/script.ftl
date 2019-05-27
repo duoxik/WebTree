@@ -1,13 +1,14 @@
 <script type="text/javascript">
     $(document).ready(function() {
-        lockButtonsFunc();
+        lockFunc();
     });
 
     function requestFunc(obj) {
-        if (obj.checked == true) {
+        var id = obj.id;
 
+        if (obj.checked == true) {
             $.ajax({
-                url: window.location + '/showChildren/' + obj.id,
+                url: window.location + '/showChildren/' + id,
                 type: 'GET',
                 async: false,
                 success: function (data) {
@@ -18,38 +19,103 @@
                 }
             });
         } else {
-            $('#ul_' + obj.id).empty();
+            $('#ul_' + id).empty();
         }
     }
 
-    function lockButtonsFunc() {
+    function lockFunc() {
         $(".b_create").attr("disabled", true);
         $(".b_update").attr("disabled", true);
         $(".b_remove").attr("disabled", true);
+
+        $('input[name="cr_node_value"]').prop('disabled', true);
+        $('input[name="up_node_value"]').prop('disabled', true);
+        $('input[name="up_node_parent_id"]').prop('disabled', true);
     }
 
-    function unlockButtonsFunc() {
+    function unlockFunc() {
         $(".b_create").attr("disabled", false);
         $(".b_update").attr("disabled", false);
         $(".b_remove").attr("disabled", false);
+
+        $('input[name="cr_node_value"]').prop('disabled', false);
+        $('input[name="up_node_value"]').prop('disabled', false);
+        $('input[name="up_node_parent_id"]').prop('disabled', false);
     }
 
-    function createFunc(obj) {
+    function createButtonFunc() {
+        var value = $('input[name="cr_node_value"]').val();
+        var parent_id = $('input[name="s_node_id"]').val();
+        var requestBody = {id: 0, value: value, parent_id: parent_id};
+
+        $.ajax({
+            url: window.location + '/addNode',
+            type: 'POST',
+            async: false,
+            data: requestBody,
+            dataType: 'json',
+            success: function (data) {
+                alert(data);
+            },
+            error: function (e) {
+                alert('Error ' + e);
+            }
+        });
+    }
+
+    function updateButtonFunc() {
+        var id = $('input[name="s_node_id"]').val();
+        var value = $('input[name="up_node_value"]').val();
+        var parent_id = $('input[name="up_node_parent_id"]').val();
+        var requestBody = {id: id, value: value, parent_id: parent_id};
+
+        if (id != 1) {
+            $.ajax({
+                url: window.location + '/updateNode',
+                type: 'POST',
+                async: false,
+                data: requestBody,
+                dataType: 'json',
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (e) {
+                    alert('Error ' + e);
+                }
+            });
+        } else {
+            alert('Error: cannot update root element.');
+        }
 
     }
 
-    function selectFunc(obj) {
-        unselectFunc();
-        $(obj).addClass("selected");
+    function removeButtonFunc() {
+        var id = $('input[name="s_node_id"]').val();
 
-        var data = obj.dataset;
-        $('input[name="tf_create_parent_id"]').val(data.parentId);
-        $('input[name="tf_update_id"]').val(data.id);
-        $('input[name="tf_update_value"]').val(data.value);
-        $('input[name="tf_update_parent_id"]').val(data.parentId);
-        $('input[name="tf_remove_id"]').val(data.id);
-        $('input[name="tf_remove_value"]').val(data.value);
-        $('input[name="tf_remove_parent_id"]').val(data.parentId);
+        if (id != 1) {
+            $.ajax({
+                url: window.location + '/deleteNode/id' + id,
+                type: 'GET',
+                async: false,
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (e) {
+                    alert('Error ' + e);
+                }
+            });
+        } else {
+            alert('Error: cannot delete root element.');
+        }
+    }
+
+    function clearDataFunc() {
+        $('input[name="s_node_id"]').val("");
+        $('input[name="s_node_value"]').val("");
+        $('input[name="s_node_parent_id"]').val("");
+        $('input[name="up_node_value"]').val("");
+        $('input[name="up_node_parent_id"]').val("");
+        $('input[name="cr_node_value"]').val("");
     }
 
     function unselectFunc() {
@@ -57,13 +123,18 @@
         clearDataFunc();
     }
 
-    function clearDataFunc() {
-        $('input[name="tf_create_parent_id"]').val(data.parentId);
-        $('input[name="tf_update_id"]').val(data.id);
-        $('input[name="tf_update_value"]').val(data.value);
-        $('input[name="tf_update_parent_id"]').val(data.parentId);
-        $('input[name="tf_remove_id"]').val(data.id);
-        $('input[name="tf_remove_value"]').val(data.value);
-        $('input[name="tf_remove_parent_id"]').val(data.parentId);
+    function selectFunc(obj) {
+        unselectFunc();
+        $(obj).addClass("selected");
+
+        var data = obj.dataset;
+        $('input[name="s_node_id"]').val(data.id);
+        $('input[name="s_node_value"]').val(data.value);
+        $('input[name="s_node_parent_id"]').val(data.parentId);
+        $('input[name="up_node_value"]').val(data.value);
+        $('input[name="up_node_parent_id"]').val(data.parentId);
+
+        unlockFunc();
     }
+
 </script>

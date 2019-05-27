@@ -11,7 +11,7 @@
 <body>
 
 
-<H1>Tree nodes:</H1>
+<H1>List nodes:</H1>
 <table>
     <tr>
         <th>id</th>
@@ -51,20 +51,25 @@
         <th>parent_id</th>
     </tr>
     <tr>
-        <td><button class="b_create">Create child</button></td>
-        <td><input name="tf_create_id" type="text" value="#########" disabled /></td>
-        <td><input name="tf_create_value" type="text" /></td>
-        <td><input name="tf_create_parent_id" type="text" disabled /></td>
+        <td>Selected node:</td>
+        <td><input name="s_node_id" type="text" disabled /></td>
+        <td><input name="s_node_value" type="text" disabled/></td>
+        <td><input name="s_node_parent_id" type="text" disabled /></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td><button class="b_create" onclick="createButtonFunc()">Create child</button></td>
+        <td>value:<input name="cr_node_value" type="text" /></td>
     </tr>
     <tr>
-        <td><button class="b_update">Update node</button></td>
-        <td><input name="tf_update_id" type="text" disabled /></td>
-        <td><input name="tf_update_value" type="text" /></td>
-        <td><input name="tf_update_parent_id" type="text" /></td>
+        <td><button class="b_update" onclick="updateButtonFunc()">Update node</button></td>
+        <td>value:<input name="up_node_value" type="text" /></td>
+        <td>parent_id:<input name="up_node_parent_id" type="text" /></td>
     </tr>
     <tr>
-        <td><button class="b_remove">Remove node</button></td>
-        <td><input name="tf_remove_id" type="text" disabled /></td>
+        <td><button class="b_remove" onclick="removeButtonFunc()">Remove node</button></td>
     </tr>
 </table>
 

@@ -35,7 +35,7 @@ public class TreeDaoImpl implements TreeDao {
     @Override
     public void removeNode(int id) {
         String sql = "DELETE FROM tree WHERE id=? OR parent_id=?";
-        jdbcTemplate.update(sql, id);
+        jdbcTemplate.update(sql, id, id);
     }
 
     @Override
