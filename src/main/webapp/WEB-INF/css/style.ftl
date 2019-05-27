@@ -1,16 +1,16 @@
 <style type="text/css">
 
     body {
-        font-family: Arial, Verdana,  sans-serif; /* Семейство шрифтов */
-        font-size: 11pt; /* Размер основного шрифта в пунктах  */
-        background-color: #f0f0f0; /* Цвет фона веб-страницы */
-        color: #333; /* Цвет основного текста */
+        font-family: sans-serif;
+        font-size: 11pt;
+        background-color: #f0f0f0;
+        color: #333;
     }
     h1 {
-        color: #a52a2a; /* Цвет заголовка */
-        font-size: 24pt; /* Размер шрифта в пунктах */
-        font-family: Georgia, Times, serif; /* Семейство шрифтов */
-        font-weight: normal; /* Нормальное начертание текста  */
+        color: #a52a2a;
+        font-size: 24pt;
+        font-family: Georgia, Times, serif;
+        font-weight: normal;
     }
 
 </style>

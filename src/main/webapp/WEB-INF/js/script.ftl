@@ -14,8 +14,8 @@
                 success: function (data) {
                     $('#ul_' + obj.id).html(data);
                 },
-                error: function (e) {
-                    alert('Error ' + e);
+                error: function(e) {
+                    // TODO error handler
                 }
             });
         } else {
@@ -53,12 +53,11 @@
             type: 'POST',
             async: false,
             data: requestBody,
-            dataType: 'json',
             success: function (data) {
-                alert(data);
+                alert('Done');
             },
-            error: function (e) {
-                alert('Error ' + e);
+            error: function(e) {
+                // TODO error handler
             }
         });
     }
@@ -75,12 +74,11 @@
                 type: 'POST',
                 async: false,
                 data: requestBody,
-                dataType: 'json',
                 success: function (data) {
-                    alert(data);
+                    alert('Done');
                 },
-                error: function (e) {
-                    alert('Error ' + e);
+                error: function(e) {
+                    // TODO error handler
                 }
             });
         } else {
@@ -98,10 +96,10 @@
                 type: 'GET',
                 async: false,
                 success: function (data) {
-                    alert(data);
+                    alert('Done');
                 },
-                error: function (e) {
-                    alert('Error ' + e);
+                error: function(e) {
+                    // TODO error handler
                 }
             });
         } else {
