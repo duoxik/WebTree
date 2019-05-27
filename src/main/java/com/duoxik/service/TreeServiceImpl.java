@@ -22,4 +22,19 @@ public class TreeServiceImpl implements TreeService {
     public List<Node> getChildrenById(int id) {
         return treeDao.getChildrenById(id);
     }
+
+    @Override
+    public void addNode(Node node) {
+        treeDao.addNode(node);
+    }
+
+    @Override
+    public void removeNode(int id) {
+        treeDao.removeNode(id);
+    }
+
+    @Override
+    public void updateNode(Node node) {
+        treeDao.updateNode(node);
+    }
 }
