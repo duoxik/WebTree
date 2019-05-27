@@ -19,13 +19,14 @@
     input + label:before {
         content: "";
         display: inline-block;
-        height: 12px;
-        width: 12px;
+        height: 16px;
+        width: 16px;
+        opacity: 0.7;
         background-size: 100%;
-        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAACXBIWXMAAAsSAAALEgHS3X78AAAAkElEQVQYlXWOvRWDQAyDv/DYK2wQSro8OkpGuRFcUjJCRmEE0TldCpsjPy9qzj7Jki62Pgh4vnqbbbEWuN+use/PlArwHccWGg780psENGFY6W4YgxZIAM339WmT3m397YYxxn6aASslFfVotYLTT3NwcuTKlFpNR2sdEak4acdKeafPlE2SZ7sw/1BEtX94AXYTVmyR94mPAAAAAElFTkSuQmCC) no-repeat;
+        background: url(https://raw.githubusercontent.com/duoxik/WebTree/master/src/main/webapp/WEB-INF/icons/plus.png) no-repeat;
     }
     input:checked + label:before{
-        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeklEQVQYlX2PsRGDMAxFX3zeK9mAlHRcupSM4hFUUjJCRpI70VHIJr7D8BtJ977+SQ9Zf7isVG16WSQC0/D0OW/FqoBlDFkIVJ2xAhA8sI/NHbcYiFrPfI0fGklKagDx2F4ltdtaM0J9L3dxcVxi+zv62E+MwPs7c60dClRP6iug7wUAAAAASUVORK5CYII=) no-repeat;
+        background: url(https://raw.githubusercontent.com/duoxik/WebTree/master/src/main/webapp/WEB-INF/icons/minus.png) no-repeat;
     }
     .selected {
         color: red;

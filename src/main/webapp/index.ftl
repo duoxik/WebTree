@@ -34,7 +34,7 @@
 <H1>Tree:</H1>
 <ul>
     <li>
-        <input type="checkbox" id="id1" onclick="requestFunc(this)"><label for="id1"></label>
+        <input type="checkbox" id="id1" onclick="openFolderFunc(this)"><label for="id1"></label>
         <p class="node_text" data-id="1" data-value="ROOT" data-parent-id="Null" onclick="selectFunc(this)">ROOT</p>
         <ul id="ul_id1"></ul>
     </li>
@@ -60,22 +60,18 @@
 
 <table>
     <tr>
-        <td><button class="b_create" onclick="createButtonFunc()">Create child</button></td>
+        <td><button class="b_create" onclick="createNodeFunc()">Create child</button></td>
         <td>value:<input name="cr_node_value" type="text" /></td>
     </tr>
     <tr>
-        <td><button class="b_update" onclick="updateButtonFunc()">Update node</button></td>
+        <td><button class="b_update" onclick="updateNodeFunc()">Update node</button></td>
         <td>value:<input name="up_node_value" type="text" /></td>
         <td>parent_id:<input name="up_node_parent_id" type="text" /></td>
     </tr>
     <tr>
-        <td><button class="b_remove" onclick="removeButtonFunc()">Remove node</button></td>
+        <td><button class="b_remove" onclick="removeNodeFunc()">Remove node</button></td>
     </tr>
 </table>
-
 <#include "WEB-INF/icons/loadIcon.ftl">
-
-<img src="https://raw.githubusercontent.com/duoxik/WebTree/master/src/main/webapp/WEB-INF/resources/minus.png">
-
 </body>
 </html>

@@ -3,7 +3,6 @@
         position:relative;
         width:22px;
         height:22px;
-        margin:auto;
         transform:scale(0.6);
         -o-transform:scale(0.6);
         -ms-transform:scale(0.6);

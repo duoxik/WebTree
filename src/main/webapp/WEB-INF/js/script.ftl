@@ -3,7 +3,7 @@
         lockFunc();
     });
 
-    function requestFunc(obj) {
+    function openFolderFunc(obj) {
         var id = obj.id;
 
         if (obj.checked == true) {
@@ -43,7 +43,7 @@
         $('input[name="up_node_parent_id"]').prop('disabled', false);
     }
 
-    function createButtonFunc() {
+    function createNodeFunc() {
         var value = $('input[name="cr_node_value"]').val();
         var parent_id = $('input[name="s_node_id"]').val();
         var requestBody = {id: 0, value: value, parent_id: parent_id};
@@ -62,7 +62,7 @@
         });
     }
 
-    function updateButtonFunc() {
+    function updateNodeFunc() {
         var id = $('input[name="s_node_id"]').val();
         var value = $('input[name="up_node_value"]').val();
         var parent_id = $('input[name="up_node_parent_id"]').val();
@@ -87,7 +87,7 @@
 
     }
 
-    function removeButtonFunc() {
+    function removeNodeFunc() {
         var id = $('input[name="s_node_id"]').val();
 
         if (id != 1) {
