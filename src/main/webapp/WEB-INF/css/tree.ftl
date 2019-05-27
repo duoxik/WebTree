@@ -30,10 +30,7 @@
     .selected {
         color: red;
     }
-    .not_selected {
-        color: #333;
-    }
-    .tree_text {
+    .node_text {
         font-size: 20px;
         margin: 0px;
         margin-left: 7px;

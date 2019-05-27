@@ -35,7 +35,7 @@
 <ul>
     <li>
         <input type="checkbox" id="id1" onclick="requestFunc(this)"><label for="id1"></label>
-        <p class="tree_text not_selected" id="id1" onclick="selectFunc(this)">ROOT</p>
+        <p class="node_text" id="id1" onclick="selectFunc(this)">ROOT</p>
         <ul id="ul_id1"></ul>
     </li>
 </ul>
