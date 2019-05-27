@@ -73,5 +73,6 @@
     </tr>
 </table>
 <#include "WEB-INF/icons/loadIcon.ftl">
+<img src="https://raw.githubusercontent.com/duoxik/WebTree/master/src/main/webapp/WEB-INF/icons/load.gif">
 </body>
 </html>
