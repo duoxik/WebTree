@@ -9,6 +9,6 @@ id int (UNIQUE, AUTO INC, PK),
 value VARCHAR(255),
 parent_id int
 
-В Spring конфиге указаны username(postgres), password(postgres)
+В Spring конфиге указаны username(postgres), password(postgres), имя бд webappdb.
 
 Должен быть создать один корневой элемент (1, ROOT, NULL).
