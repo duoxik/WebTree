@@ -34,13 +34,19 @@ public class TreeDaoImpl implements TreeDao {
 
     @Override
     public void removeNode(int id) {
-        String sql = "DELETE FROM tree WHERE id=? OR parent_id=?";
-        jdbcTemplate.update(sql, id, id);
+        String sql = "DELETE FROM tree WHERE id=?";
+        jdbcTemplate.update(sql, id);
     }
 
     @Override
     public void updateNode(Node node) {
         String sql = "UPDATE tree SET value=?, parent_id=? WHERE id=?";
         jdbcTemplate.update(sql, node.getValue(), node.getParent_id(), node.getId());
+    }
+
+    @Override
+    public Node getNodeById(int id) {
+        String sql = "SELECT * FROM tree WHERE id=?";
+        return jdbcTemplate.queryForObject(sql, new TreeMapper(), id);
     }
 }

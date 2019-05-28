@@ -29,7 +29,6 @@ public class TreeController {
     @GetMapping(value = "/deleteNode/id{id}", produces = "plain/text")
     @ResponseBody
     public String deleteNode(@PathVariable int id) {
-        //TODO transaction validation
         treeService.removeNode(id);
         return "true";
     }
@@ -38,7 +37,6 @@ public class TreeController {
     @ResponseBody
     public String addNode(@ModelAttribute("node") Node node) {
         //TODO input args validation
-        //TODO transaction validation
         treeService.addNode(node);
         return "true";
     }
@@ -47,7 +45,6 @@ public class TreeController {
     @ResponseBody
     public String updateNode(@ModelAttribute("node") Node node) {
         //TODO input args validation
-        //TODO transaction validation
         treeService.updateNode(node);
         return "true";
     }

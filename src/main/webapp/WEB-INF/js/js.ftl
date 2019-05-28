@@ -3,23 +3,43 @@
         lockFunc();
     });
 
+    var timeoutID;
+
     function openFolderFunc(obj) {
+        var nextElement = $(obj).next();
         var id = obj.id;
 
-        if (obj.checked == true) {
-            $.ajax({
-                url: window.location + '/showChildren/' + id,
-                type: 'GET',
-                async: false,
-                success: function (data) {
-                    $('#ul_' + obj.id).html(data);
-                },
-                error: function(e) {
-                    // TODO error handler
-                }
-            });
-        } else {
-            $('#ul_' + id).empty();
+        switch (nextElement.attr('class')) {
+            case "closed":
+                nextElement.removeClass("closed").addClass("loading");
+                timeoutID = setTimeout(function () {
+                    $.ajax({
+                        url: window.location + '/showChildren/' + id,
+                        type: 'GET',
+                        async: true,
+                        success: function (data) {
+                            $('#ul_' + obj.id).html(data);
+                            nextElement.removeClass("loading").addClass("opened");
+                        },
+                        error: function(e) {
+                            alert('Error: entered invalid input data.')
+                        }
+                    });
+                }, 100);
+                obj.checked = true;
+                break;
+            case "opened":
+                $('#ul_' + id).empty();
+                nextElement.removeClass("opened").addClass("closed");
+                obj.checked = false;
+                break;
+            case "loading":
+                window.clearTimeout(timeoutID);
+                nextElement.removeClass("loading").addClass("closed");
+                obj.checked = false;
+                break;
+            default:
+                alert('Error: something went wrong.')
         }
     }
 
@@ -54,7 +74,7 @@
             async: false,
             data: requestBody,
             success: function (data) {
-                alert('Done');
+                location.reload();
             },
             error: function(e) {
                 // TODO error handler
@@ -75,10 +95,10 @@
                 async: false,
                 data: requestBody,
                 success: function (data) {
-                    alert('Done');
+                    location.reload();
                 },
                 error: function(e) {
-                    // TODO error handler
+                    alert('Error: entered invalid input data.')
                 }
             });
         } else {
@@ -96,10 +116,10 @@
                 type: 'GET',
                 async: false,
                 success: function (data) {
-                    alert('Done');
+                    location.reload();
                 },
                 error: function(e) {
-                    // TODO error handler
+                    alert('Error: entered invalid input data.')
                 }
             });
         } else {

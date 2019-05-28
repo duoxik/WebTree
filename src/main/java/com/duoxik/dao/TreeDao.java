@@ -10,4 +10,5 @@ public interface TreeDao {
     void addNode(Node node);
     void removeNode(int id);
     void updateNode(Node node);
+    Node getNodeById(int id);
 }

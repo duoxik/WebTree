@@ -30,11 +30,20 @@ public class TreeServiceImpl implements TreeService {
 
     @Override
     public void removeNode(int id) {
+        List<Node> children = getChildrenById(id);
         treeDao.removeNode(id);
+        for (Node node : children) {
+            removeNode(node.getId());
+        }
     }
 
     @Override
     public void updateNode(Node node) {
-        treeDao.updateNode(node);
+        Node parentNode = treeDao.getNodeById(node.getParent_id());
+        if (parentNode != null) {
+            treeDao.updateNode(node);
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }
